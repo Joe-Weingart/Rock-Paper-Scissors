@@ -24,6 +24,43 @@
                     return "rock";
             }
         }
+
+        function playRPS(playerSelection, computerSelection){
+            playerSelection = playerSelection.toLowerCase();
+            if(playerSelection==="rock"){
+                if(computerSelection==="rock") {
+                    return "Tie";
+                }
+                if(computerSelection==="paper"){
+                    return "You lose";
+                }
+                if(computerSelection==="scissors"){
+                    return "You win!";
+                }
+            }
+            if(playerSelection==="paper"){
+                if(computerSelection==="rock") {
+                    return "You win!";
+                }
+                if(computerSelection==="paper"){
+                    return "Tie";
+                }
+                if(computerSelection==="scissors"){
+                    return "You lose";
+                }
+            }
+            if(playerSelection==="scissors"){
+                if(computerSelection==="rock") {
+                    return "You lose";
+                }
+                if(computerSelection==="paper"){
+                    return "You win!";
+                }
+                if(computerSelection==="scissors"){
+                    return "Tie";
+                }
+            }
+        }
     </script>
 </body>
 </html>
