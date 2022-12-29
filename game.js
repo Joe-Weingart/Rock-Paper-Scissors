@@ -53,20 +53,24 @@ function playRPS(playerSelection, computerSelection){
     if(playerSelection==="paper"){
         if(computerSelection==="rock") {
             document.querySelector('.results').textContent = "Computer plays rock, you win";
+            playScore++;
         }
         if(computerSelection==="paper"){
             document.querySelector('.results').textContent = "Tie";
         }
         if(computerSelection==="scissors"){
             document.querySelector('.results').textContent = "Computer plays scissors, you lose";
+            compScore++;
         }
     };
     if(playerSelection==="scissors"){
         if(computerSelection==="rock") {
             document.querySelector('.results').textContent = "Computer plays rock, you lose";
+            compScore++;
         }
         if(computerSelection==="paper"){
             document.querySelector('.results').textContent = "Computer plays paper, you win";
+            playScore++;
         }
         if(computerSelection==="scissors"){
             document.querySelector('.results').textContent = "Tie";
@@ -74,8 +78,23 @@ function playRPS(playerSelection, computerSelection){
     };
     playerScore.innerHTML = "Player score: " + playScore;
     computerScore.innerHTML = "Computer score: " + compScore;
+    if (playScore == 5) {
+        document.querySelector('.results').textContent = "You win the game!";
+        playScore = 0;
+        compScore = 0;
+        playerScore.innerHTML = "Player score: " + playScore;
+        computerScore.innerHTML = "Computer score: " + compScore;
+    };
+    if (compScore == 5) {
+        document.querySelector('.results').textContent = "You lose the game!";
+        playScore = 0;
+        compScore = 0;
+        playerScore.innerHTML = "Player score: " + playScore;
+        computerScore.innerHTML = "Computer score: " + compScore;
+    };
 
 };
+
 
 
 // A game of five rock paper scissors matches
