@@ -19,10 +19,20 @@ function getComputerChoice(){
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+
+let compScore = 0;
+let playScore = 0;
+
+playerScore.innerHTML = "Player score: " + playScore;
+computerScore.innerHTML = "Computer score: " + compScore;
+
 
 rock.addEventListener('click', () => {playRPS("rock", getComputerChoice())});
 paper.addEventListener('click', () => {playRPS("paper", getComputerChoice())});
 scissors.addEventListener('click', () => {playRPS("scissors", getComputerChoice())});
+
 
 // This determines if the player has won, tied or lost a round
 function playRPS(playerSelection, computerSelection){
@@ -33,9 +43,11 @@ function playRPS(playerSelection, computerSelection){
         }
         if(computerSelection==="paper"){
             document.querySelector('.results').textContent = "Computer plays paper, you lose";
+            compScore++;
         }
         if(computerSelection==="scissors"){
             document.querySelector('.results').textContent = "Computer plays scissors, you win";
+            playScore++
         }
     };
     if(playerSelection==="paper"){
@@ -60,6 +72,8 @@ function playRPS(playerSelection, computerSelection){
             document.querySelector('.results').textContent = "Tie";
         }
     };
+    playerScore.innerHTML = "Player score: " + playScore;
+    computerScore.innerHTML = "Computer score: " + compScore;
 
 };
 
